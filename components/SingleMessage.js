@@ -1,9 +1,12 @@
 import { Text, StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
 
-export function SingleMessage({ message = "" }) {
+export function SingleMessage({ message = "", sender = {name: 'Anônimo'} }) {
   return (
     <Card style={styles.singleMessageBox}>
+      <Text style={styles.senderName}>
+        {sender.name}
+      </Text>
       <Text>{message}</Text>
     </Card>
   );
@@ -11,8 +14,11 @@ export function SingleMessage({ message = "" }) {
 
 const styles = StyleSheet.create({
     singleMessageBox: {
-        backgroundColor: '#f0f0f0',
+        backgroundColor: '#fff',
         marginBottom: 16,
         padding: 16,
     },
+    senderName: {
+      fontSize: 10,
+    }
 });
